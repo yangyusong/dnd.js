@@ -1,69 +1,41 @@
 # DragnDrop.js
 
-A minimalist JavaScript framework for simple HTML5 Drag and Drop
+基于h5的拖放小框架，原版来自https://github.com/PascalPrecht/DnD.js.git，改造成比较容易使用的版本，不用再写各种回调，直接配置html即可使用常用功能。
+
+参考案例：http://08180.pw/demo/dnd/
 
 ## Installation
 
-You can either download the latest version or clone the public GitHub repository. To clone the GitHub repository, just use the following git command in your terminal:
+下载最新版本:
 
 ```
-git clone https://github.com/PascalPrecht/DnD.js.git
+git clone https://github.com/yangyusong/dnd.js
 ```
 
-After that you just have to include the dnd.js script:
 
+## 如何使用
+
+<head>下加入样式 
+```
+<script src=path/to/dnd.css></script>
+```
+
+<body>结尾处加入js文件
 ```
 <script src=path/to/dnd.js></script>
 ```
 
-Thats all! You're ready to rock now!
+html中加入元素需要的属性
+如果想要元素可拖动，加入三个属性：
+class='drag_box' dnd-id='uniq_name' draggable=true
+即可。其中dnd-id取一个比较唯一的名称，另外两个属性写死。
 
-## How to use it
+如果元素是可以盛放拖动元素的容器，那么这样给元素加入如下属性
+class='drag_container'
 
-DnD.js provides a very easy to use API. All you have to do is to answer yourself these two questions:
+如果元素是用来删除容器中所有内容的容器（目前只支持删除所有），那么给元素加入如下属性
+class='drag_trash'
 
-* Where do I want to have this cool drag and drop feature?
-* What should happen during the drag and drop?
+对了，如果你对容器的样子不满意，就修改dnd.css
 
-Got the answers? All right, so just do it!
 
-### dnd.on(selector, config)
-
-The on() method makes your dreams come true. There is nothing more you need for fancy drag and drop. Just pass a valid query selector and a config object, to tell DnD.js what should happen during the drag and drop.
-
-Here is an example:
-
-```
-dnd.on('#drop-area', {
-    'over': function (element) {
-        /* do something with element here */
-    },
-    'drop': function (files, element) {
-        /* Dropped! */
-    }
-});
-```
-
-You can specify your app's behavior by defining callbacks for the following events:
-
-#### 'enter':
-
-Will be called when entering the Drag and Drop area with a grabbed (or more) file(s). You have access to the queried element.
-
-#### 'over':
-
-Will be called while dragging a file (or more) over the Drag and Drop area. You have access to the queried element.
-
-#### 'leave':
-
-Will be called when leaving the Drag and Drop area with the grabbed (or more) file(s). You have access to the queried element.
-
-#### 'drop':
-
-Will be called after the grabbed file or (files) is dropped. You have access to the queried element and the file (or files) being dropped into the Drag and Drop area.
-
-Each of these callbacks is optional.
-
-## Support
-
-DnD.js works in the latest version of Mozilla Firefox, Google Chrome and Safari.
