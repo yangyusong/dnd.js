@@ -27,15 +27,27 @@ git clone https://github.com/yangyusong/dnd.js
 
 html中加入元素需要的属性
 如果想要元素可拖动，加入三个属性：
+```
 class='drag_box' dnd-id='uniq_name' draggable=true
+```
 即可。其中dnd-id取一个比较唯一的名称，另外两个属性写死。
 
 如果元素是可以盛放拖动元素的容器，那么这样给元素加入如下属性
+```
 class='drag_container'
+```
 
 如果元素是用来删除容器中所有内容的容器（目前只支持删除所有），那么给元素加入如下属性
+```
 class='drag_trash'
+```
 
 对了，如果你对容器的样子不满意，就修改dnd.css
+
+允许自由使用和传播
+
+## todos（不一定去做）
+###删除单个元素功能
+###交换元素功能
 
 
